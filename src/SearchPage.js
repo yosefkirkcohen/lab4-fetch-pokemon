@@ -3,6 +3,7 @@ import Dropdown from './Dropdown.js'
 // import data from './data.js'
 import request from 'superagent'
 
+
 export default class SearchPage extends Component {
 
     state = {
@@ -42,10 +43,9 @@ export default class SearchPage extends Component {
                     handleChange={this.dropdownChange} />
                 <button onClick={this.fetchSearch} >search</button>
                 <div>
-                    {
-                    // this.state.isLoading
-                    
-                    this.state.data.map(pokemon => <div key={pokemon.pokemon}>
+                    {this.state.isLoading 
+                     ? <img src='spinner.gif' alt='spinner'/>
+                     : this.state.data.map(pokemon => <div key={pokemon.pokemon}>
                        {pokemon.pokemon} </div>)}
                 </div>
             </div>
