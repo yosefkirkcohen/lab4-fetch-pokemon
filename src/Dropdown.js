@@ -6,7 +6,7 @@ export default class Dropdown extends Component {
 
     render() {
         return (
-            <div>
+            <div className='dropdown'>
                 <select onChange={this.props.handleChange} >
                     <option value='asc'>
                         ascending

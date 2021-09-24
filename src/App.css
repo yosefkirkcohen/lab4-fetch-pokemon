@@ -1,3 +1,9 @@
+html, body {
+  margin: 20px
+}
+
+
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+  width: 200px;
+}
+
+.pokeDiv {
+  border: solid 1px black;
+  border-radius: 5%;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.pokeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dropdown {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.searchButton {
+  margin-bottom: 10px;
 }
