@@ -1,7 +1,7 @@
 html, body {
-  margin: 20px
+  margin: 20px;
+  background-color: lightsalmon;
 }
-
 
 
 .App {
@@ -69,4 +69,9 @@ img {
 
 .searchButton {
   margin-bottom: 10px;
+}
+
+
+p {
+  margin: 0;
 }
