@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap');
+
 html, body {
   margin: 0px;
   background-color: lightsalmon;
@@ -14,11 +16,12 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 100vw;
 }
 
 .background-color-change {
   animation-name: background-color-change;
-  animation-duration: 6s;
+  animation-duration: 9s;
 }
 
 @keyframes App-logo-spin {
@@ -49,6 +52,7 @@ img {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  font-weight: 500;
 }
 
 .dropdown {
@@ -67,10 +71,15 @@ p {
 
 @keyframes background-color-change {
   0% {background-color: lightsalmon;}
+  25% {background-color: gold;}
   50% {background-color: rgb(58, 199, 58);}
+  75% {background-color: purple;}
   100% {background-color: lightsalmon;}
 }
 
 .title {
   padding: 30px;
+  font-family: 'Mukta', sans-serif;
 }
+
+

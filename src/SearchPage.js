@@ -35,7 +35,7 @@ export default class SearchPage extends Component {
         this.setState({animation: 'background-color-change searchPageContainer'})
         setTimeout(() => {
             this.setState({animation: 'searchPageContainer'})
-        }, 6000) 
+        }, 9000) 
     }
 
     // function for getting data from the API

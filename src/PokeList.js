@@ -6,9 +6,9 @@ export default class PokeList extends Component {
         return (
             <div className='pokeList'>{
                 this.props.dataState.map(pokemon => <PokeItem 
-                                                        name={pokemon.pokemon}
+                                                        name={pokemon.pokemon.toUpperCase()}
                                                         image={pokemon.url_image}
-                                                        type={pokemon.type_1}
+                                                        type={pokemon.type_1.toUpperCase()}
                                                         />)
            }</div>
         )
