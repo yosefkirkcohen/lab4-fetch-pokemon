@@ -6,7 +6,7 @@ export default class PokeItem extends Component {
             
                 <div className='pokeDiv' key={this.props.name}>
                        <p>{this.props.name}</p>
-                       <p>type: {this.props.type}</p>
+                       <p>TYPE: {this.props.type}</p>
                        <img src={this.props.image} alt={this.props.name} />
                 </div>
             

@@ -11,11 +11,13 @@ export default class SearchPage extends Component {
         sortOrder: 'asc',
         isLoading: false,
         query: '',
-        data: []
+        data: [],
+        animation: 'searchPageContainer'
     }
 
     // Call fetchSearch. componentDidMount is called on load.
     componentDidMount = async () => {
+        this.runAnimation()
         this.fetchSearch()
     }
 
@@ -26,6 +28,14 @@ export default class SearchPage extends Component {
     dropdownChange = async (e) => {
         await this.setState({ sortOrder: e.target.value})
         this.fetchSearch()
+        this.runAnimation()
+    }
+
+    runAnimation = () => {
+        this.setState({animation: 'background-color-change searchPageContainer'})
+        setTimeout(() => {
+            this.setState({animation: 'searchPageContainer'})
+        }, 9000) 
     }
 
     // function for getting data from the API
@@ -36,9 +46,17 @@ export default class SearchPage extends Component {
         this.setState({isLoading: false})
     }
 
+    
+
     render() {
         return (
-            <div>
+            <div className={this.state.animation}>
+                <div className='title'>
+                    <h1>Find your Pokemon</h1>
+                </div>
+                <div>
+                    Type in part of your pokemon's name. Do it now.
+                </div>
                 <input onChange={this.changeHandler} value={this.state.query} />
                 <Dropdown
                     handleChange={this.dropdownChange} />
