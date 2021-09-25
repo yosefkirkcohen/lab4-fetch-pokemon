@@ -54,6 +54,9 @@ export default class SearchPage extends Component {
                 <div className='title'>
                     <h1>Find your Pokemon</h1>
                 </div>
+                <div>
+                    Type in part of your pokemon's name. Do it now.
+                </div>
                 <input onChange={this.changeHandler} value={this.state.query} />
                 <Dropdown
                     handleChange={this.dropdownChange} />
