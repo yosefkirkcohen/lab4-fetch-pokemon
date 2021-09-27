@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import SearchPage from './SearchPage'
 import './App.css'
 import Home from './Home.js'
+import DetailPage from './DetailPage'
 import {
   BrowserRouter as Router, 
+  NavLink, 
   Route, 
   Switch,
 } from 'react-router-dom';
@@ -13,6 +15,10 @@ export default class App extends Component {
     return (
       <div>
                 <Router>
+                  <header>
+                    <NavLink to='/'>Home</NavLink>
+                    <NavLink to='/searchPage'>Search</NavLink>
+                  </header>
                     <Switch>
                         <Route 
                             path="/" 
@@ -24,11 +30,11 @@ export default class App extends Component {
                             exact
                             render={(routerProps) => <SearchPage {...routerProps} />} 
                         />
-                        {/* <Route 
-                          path="/users/:myId" 
+                        <Route 
+                          path="/:_id" 
                           exact
                           render={(routerProps) => <DetailPage {...routerProps} />} 
-                        /> */}
+                        />
                     </Switch>
                 </Router>
             </div>

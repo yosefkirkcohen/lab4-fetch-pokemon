@@ -12,7 +12,8 @@ export default class SearchPage extends Component {
         isLoading: false,
         query: '',
         data: [],
-        animation: 'searchPageContainer'
+        animation: 'searchPageContainer',
+        page: 1
     }
 
     // Call fetchSearch. componentDidMount is called on load.
@@ -31,6 +32,16 @@ export default class SearchPage extends Component {
         this.runAnimation()
     }
 
+    handlePrev = async () => {
+        await this.setState({page: this.state.page - 1})
+        this.fetchSearch()
+    }
+
+    handleNext = async () => {
+        await this.setState({page: this.state.page + 1})
+        this.fetchSearch()
+    }
+
     runAnimation = () => {
         this.setState({animation: 'background-color-change searchPageContainer'})
         setTimeout(() => {
@@ -41,7 +52,7 @@ export default class SearchPage extends Component {
     // function for getting data from the API
     fetchSearch = async () => {
         this.setState({isLoading: true})
-        const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.query}&sort=pokemon&direction=${this.state.sortOrder}&perPage=`)
+        const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.query}&sort=pokemon&direction=${this.state.sortOrder}&page=${this.state.page}&perPage=50`)
         this.setState({data: response.body.results})
         this.setState({isLoading: false})
     }
@@ -61,6 +72,17 @@ export default class SearchPage extends Component {
                 <Dropdown
                     handleChange={this.dropdownChange} />
                 <button className='searchButton' onClick={this.fetchSearch} >search</button>
+                    <div>
+                        {this.state.page === 1 ? <div></div> :
+                        <button onClick={this.handlePrev}>
+                            Prev
+                        </button>}
+                        
+                        <button onClick={this.handleNext}>
+                            Next
+                        </button>
+                        <div>{this.state.page}</div>
+                    </div>
                 <div>
                     {this.state.isLoading 
                      ? <img src='spinner.gif' alt='spinner'/>
