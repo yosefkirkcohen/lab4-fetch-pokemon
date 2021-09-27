@@ -19,8 +19,8 @@ export default class SearchPage extends Component {
 
     // Call fetchSearch. componentDidMount is called on load.
     componentDidMount = async () => {
-        this.runAnimation()
         this.fetchSearch()
+        this.runAnimation()
     }
 
     changeHandler = (e) => {
@@ -57,8 +57,8 @@ export default class SearchPage extends Component {
         const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.query}&sort=pokemon&direction=${this.state.sortOrder}&page=${this.state.page}&perPage=50`)
         this.setState({data: response.body.results})
         this.setState({isLoading: false})
-        console.log(response.body)
         pageCount = response.body.count/response.body.perPage
+
     }
 
     
