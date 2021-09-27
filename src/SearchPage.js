@@ -4,6 +4,7 @@ import Dropdown from './Dropdown.js'
 import request from 'superagent'
 import PokeList from './PokeList.js'
 
+let pageCount;
 
 export default class SearchPage extends Component {
 
@@ -49,12 +50,15 @@ export default class SearchPage extends Component {
         }, 9000) 
     }
 
+    
     // function for getting data from the API
     fetchSearch = async () => {
         this.setState({isLoading: true})
         const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.query}&sort=pokemon&direction=${this.state.sortOrder}&page=${this.state.page}&perPage=50`)
         this.setState({data: response.body.results})
         this.setState({isLoading: false})
+        console.log(response.body)
+        pageCount = response.body.count/response.body.perPage
     }
 
     
@@ -73,14 +77,14 @@ export default class SearchPage extends Component {
                     handleChange={this.dropdownChange} />
                 <button className='searchButton' onClick={this.fetchSearch} >search</button>
                     <div>
-                        {this.state.page === 1 ? <div></div> :
+                        {this.state.page !== 1 &&
                         <button onClick={this.handlePrev}>
                             Prev
                         </button>}
-                        
+                        {this.state.page < pageCount &&
                         <button onClick={this.handleNext}>
                             Next
-                        </button>
+                        </button>}
                         <div>{this.state.page}</div>
                     </div>
                 <div>
