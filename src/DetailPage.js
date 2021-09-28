@@ -31,7 +31,7 @@ export default class DetailPage extends Component {
                 <div>
                     {this.state.pokemon.pokemon}
                 </div>
-                <img src={this.state.pokemon.url_image} alt='fuck you'/>
+                <img src={this.state.pokemon.url_image} alt='whatever'/>
                 <div>
                     Type 1: {this.state.pokemon.type_1}
                 </div>

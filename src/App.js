@@ -16,8 +16,8 @@ export default class App extends Component {
       <div>
                 <Router>
                   <header>
-                    <NavLink to='/'>Home</NavLink>
-                    <NavLink to='/searchPage'>Search</NavLink>
+                    <NavLink exact activeClassName='header-link' to='/'>Home</NavLink>
+                    <NavLink exact activeClassName='header-link' to='/searchPage'>Search</NavLink>
                   </header>
                     <Switch>
                         <Route 
