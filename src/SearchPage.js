@@ -80,7 +80,7 @@ export default class SearchPage extends Component {
                 <input onChange={this.changeHandler} value={this.state.query} />
                 <Dropdown
                     handleChange={this.dropdownChange} />
-                <button className='searchButton' onClick={this.fetchAndSetPage()} >search</button>
+                <button className='searchButton' onClick={this.fetchAndSetPage} >search</button>
                     <div>
                         {this.state.page !== 1 &&
                         <button onClick={this.handlePrev}>
